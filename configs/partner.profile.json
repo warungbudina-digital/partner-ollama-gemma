@@ -1,0 +1,55 @@
+{
+  "name": "partner-ollama-gemma",
+  "model": "gemma",
+  "role": "editorial-research-partner",
+  "stabilityProfile": "google-cloud-shell-free",
+  "promptFile": "prompts/SYSTEM.md",
+  "docs": {
+    "cloudShell": "docs/CLOUD_SHELL_PROFILE.md",
+    "n8nRole": "docs/N8N_ROLE.md"
+  },
+  "runtime": {
+    "ephemeralSessionSafe": true,
+    "heavyDependenciesAllowed": false,
+    "dockerPreferred": false,
+    "localDatabasePreferred": false,
+    "persistentArtifactsAllowed": "small-text-only",
+    "targetRepoFootprintMb": 25,
+    "maxSingleArtifactMb": 10,
+    "tempWorkBudgetMb": 256
+  },
+  "n8n": {
+    "mode": "tool-partner",
+    "expectedInput": [
+      "json",
+      "text",
+      "small-markdown"
+    ],
+    "expectedOutput": [
+      "strict-json",
+      "short-markdown",
+      "plain-text"
+    ],
+    "escalateWhen": [
+      "context too large",
+      "task needs long reasoning",
+      "task requires heavy codebase work",
+      "task needs remote state not provided"
+    ]
+  },
+  "taskFit": {
+    "bestFor": [
+      "rewrite and polish drafts",
+      "summarize source material",
+      "prepare outlines and niche docs",
+      "turn notes into publish-ready structure",
+      "generate response variants with consistent tone"
+    ],
+    "avoid": [
+      "precise code generation as primary task",
+      "long-running autonomous loops",
+      "large local indexing",
+      "heavy multi-step stateful execution"
+    ]
+  }
+}
