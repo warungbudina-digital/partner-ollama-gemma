@@ -1,0 +1,11 @@
+models:
+  defaults:
+    model:
+      primary: "ollama-gemma-2b/gemma:2b"
+  providers:
+    ollama-gemma-2b:
+      api: "openai-completions"
+      baseUrl: "https://llm-bridge-gemma.example.com/v1"
+      apiKey: "<BRIDGE_API_KEY_SAMA_DENGAN_VPS>"
+      models:
+        "gemma:2b": {}
